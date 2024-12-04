@@ -15,7 +15,7 @@ useEffect(() => { //lagt i för att useEffect ska bestämma när det fetches
     const apiUrl = "https://restcountries.com/v3.1/all"; //Api som fetchar all data (inga parameter) (ska vara i function annars problem ?)
 
     const fetchFlag = async () => {
-try {
+    try {
     const response = await fetch(apiUrl); //request att hämta all data 
     const countries = await response.json(); //ändrar till JSon och är en function
     const randomIndex = Math.floor(Math.random() * countries.length);//length så att det är inom array
@@ -84,7 +84,7 @@ const renderOptions = () =>
   return (
     <div>
       <h1>Guess the Flag!</h1>
-      {flag && <img src={flag} alt="Country Flag" style={{ width: "200px", height: "auto" }} />}
+      {flag && <img src={flag} alt="Country Flag" style={{ margin:"10px 30px", width: "200px", height: "auto" }} />}
       <div>{renderOptions()}</div> 
       {/* call function renderOptions */}
       {result && <p>{result}</p>}
