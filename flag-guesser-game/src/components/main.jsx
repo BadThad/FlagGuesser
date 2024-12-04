@@ -35,7 +35,16 @@ try {
 
 //   get random countries som kopplas till const randomCountries = getRandomCountries 
 // hämta tre länder som inte är rätt
-const getRandomCountries = ()
+const getRandomCountries = (correctCountry, countries) => {
+    const randomCountries = [correctCountry];//visar korrekt country så att det inte väljs den
+    while (randomCountries.length < 4) { //while loop som körs så långe tills det är färre än 4 element, då vi behöver 4, inkl det rätta landet
+        const randomCountry = countries[Math.floor(Math.random() * countries.length)]; //samma sak som ovan med correct country
+        if (!randomCountries.includes(randomCountry)) { //random country får inte vara correcta country
+          randomCountries.push(randomCountry); // push: läggs i slutet av listan om landet inte finns i listan
+        }
+      }
+      return randomCountries.sort(() => Math.random() - 0.5); //sort randomly -0.5 gör att det blandas även i array (att det inte är samma)
+};
 
 
   return (
