@@ -15,9 +15,12 @@ const fetchFlag = async () => {
 try {
     const response = await fetch(apiUrl); //request att hämta all data 
     const countries = await response.json(); //ändrar till JSon och är en function
-    const randomIndex = Math.floor(Math.random() * countries.length);
-    let correctCountry = countries[randomIndex]; //att välja random land
-    //length så att det är inom array
+    const randomIndex = Math.floor(Math.random() * countries.length);//length så att det är inom array
+    const country = countries[randomIndex];
+
+    setCorrectCountry = (countries); //att välja random land
+    setFlag(country.flags[0]);
+    
  } catch (error) { //error meddelande om de inte gick att hämta api
  } displayError(error.message);
 }
