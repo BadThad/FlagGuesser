@@ -11,14 +11,13 @@ const [selectedOption, setSelectOption] = useState(null); //det svaret som anvä
 // API Rest countries API
 
 const fetchFlag = async () => {
-    const apiUrl = "https://restcountries.com/v3.1/all"; //Api som fetchar all data (inga parameter)
-}
 try {
+    const apiUrl = "https://restcountries.com/v3.1/all"; //Api som fetchar all data (inga parameter) (ska vara i function annars problem)
     const response = await fetch(apiUrl); //request att hämta all data 
     const countries = await response.json(); //ändrar till JSon och är en function
  } catch (error) { //error meddelande om de inte gick att hämta api
- }
-
+ } displayError(error.message);
+}
   return (
     <div>
       <h1>Guess the Flag!</h1>
