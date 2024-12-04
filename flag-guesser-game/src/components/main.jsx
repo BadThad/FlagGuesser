@@ -50,6 +50,7 @@ const getRandomCountries = (correctCountry, countries) => {
   return (
     <div>
       <h1>Guess the Flag!</h1>
+      <img src={flag}/>
     </div>
   );
 };
