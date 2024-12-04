@@ -9,7 +9,7 @@ const [correctCountry, setCorrectCountry] = useState(""); //Sparar rätt svar
 const [selectedOption, setSelectOption] = useState(null); //det svaret som användaren trycker
 
 // API Rest countries API
-
+useEffect(() => { //lagt i för att useEffect ska bestämma när det fetches
 const fetchFlag = async () => {
 try {
     const apiUrl = "https://restcountries.com/v3.1/all"; //Api som fetchar all data (inga parameter) (ska vara i function annars problem)
@@ -18,6 +18,11 @@ try {
  } catch (error) { //error meddelande om de inte gick att hämta api
  } displayError(error.message);
 }
+
+
+    fetchFlag(); // calls function fetchFlag() gör att den endast hämtas när den ska
+  }, []);
+
   return (
     <div>
       <h1>Guess the Flag!</h1>
