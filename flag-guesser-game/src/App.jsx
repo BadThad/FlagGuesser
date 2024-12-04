@@ -1,4 +1,3 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import React from "react";
 import Footer from './components/footer.jsx';
@@ -10,11 +9,9 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
       <Header></Header>
       <FlagGuessGame></FlagGuessGame>
       <Footer></Footer>
-      </BrowserRouter>
     </>
   )
 }
