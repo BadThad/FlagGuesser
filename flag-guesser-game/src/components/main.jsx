@@ -18,16 +18,25 @@ try {
     const randomIndex = Math.floor(Math.random() * countries.length);//length så att det är inom array
     const country = countries[randomIndex];
 
-    setCorrectCountry = (countries); //att välja random land
+    setCorrectCountry(country); //att välja random land
     setFlag(country.flags[0]);
-    
+
+    const randomCountries = getRandomCountries(country, countries);
+    setOptions(randomCountries.map((country) => country.name.common)); //randomCountries är Array, map skapar ny array. country.name.common för att nå landet och inte hela objectet
+
  } catch (error) { //error meddelande om de inte gick att hämta api
- } displayError(error.message);
+ } console.error("Error fetching data", error.message);
 }
 
 
     fetchFlag(); // calls function fetchFlag() gör att den endast hämtas när den ska
   }, []);
+
+
+//   get random countries som kopplas till const randomCountries = getRandomCountries 
+// hämta tre länder som inte är rätt
+const getRandomCountries = ()
+
 
   return (
     <div>
