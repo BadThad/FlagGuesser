@@ -1,9 +1,11 @@
-function Main () {
-    return (
-        <>
-            <div>Main</div>
-        </>
-    )
-}
+import React, { useState, useEffect } from "react";
 
-export default Main;
+const FlagGuessGame = () => {
+  return (
+    <div>
+      <h1>Guess the Flag!</h1>
+    </div>
+  );
+};
+
+export default FlagGuessGame;
