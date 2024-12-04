@@ -7,6 +7,8 @@ const [flag, setFlag] = useState(""); //behåller flaggans url
 const [options, setOptions] = useState([]); //sparar olika länderna
 let [correctCountry, setCorrectCountry] = useState(""); //Sparar rätt svar 
 const [selectedOption, setSelectOption] = useState(null); //det svaret som användaren trycker
+const [result, setResult] = useState("");//Meddelande vid rätt eller fel svar
+
 
 // API Rest countries API
 useEffect(() => { //lagt i för att useEffect ska bestämma när det fetches
@@ -19,7 +21,7 @@ try {
     const country = countries[randomIndex];
 
     setCorrectCountry(country); //att välja random land
-    setFlag(country.flags[0]);
+    setFlag(`https://flagcdn.com/w320/${country.cca2.toLowerCase()}.png`);//annan API för img - visar random bild, cca2 är cuntry code
 
     const randomCountries = getRandomCountries(country, countries);
     setOptions(randomCountries.map((country) => country.name.common)); //randomCountries är Array, map skapar ny array. country.name.common för att nå landet och inte hela objectet
@@ -44,6 +46,15 @@ const getRandomCountries = (correctCountry, countries) => {
         }
       }
       return randomCountries.sort(() => Math.random() - 0.5); //sort randomly -0.5 gör att det blandas även i array (att det inte är samma)
+};
+//Om option (som väljs är rätt eller fel olika svar)
+const optionClick = (option) =>{
+    setSelectOption (option);
+    if (option === correctCountry) {
+        setResult('Correct');
+    } else {
+        setResult(`Wrong. The correct answer was ${correctCountry}`);
+    }
 };
 
 
