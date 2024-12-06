@@ -8,6 +8,7 @@ const [options, setOptions] = useState([]); //sparar olika länderna
 const [correctCountry, setCorrectCountry] = useState(""); //Sparar rätt svar 
 const [selectedOption, setSelectOption] = useState(null); //det svaret som användaren trycker
 const [result, setResult] = useState("");//Meddelande vid rätt eller fel svar
+const [counter, setCounter] = useState(1); // A counter to keep track of number of guesses (up to 10 when round ends).
 
 
 // API Rest countries API
@@ -59,6 +60,23 @@ const optionClick = (option) =>{
     }
 };
 
+// Counter to keep track of how many rounds have been played and to fetch new flag.
+const roundCounter = () => {
+    setCounter(counter + 1);
+}
+
+// "Next" button to proceed to next round.
+const nextRound = () => {
+    return (
+        <div>
+            <button 
+            className="next-round-btn"
+            onClick={roundCounter}>
+                Next Round
+            </button>
+        </div>
+    )
+}
 
 //button option:
 //arrow function för att kunna trycka på options.
@@ -84,11 +102,13 @@ const renderOptions = () =>
   return (
     <div>
       <h1>Guess the Flag!</h1>
+      <div>Round {counter} of 10.</div>
       {flag && <img src={flag} alt="Country Flag" style={{ margin:"10px 30px", width: "200px", height: "auto" }} />}
       <div>{renderOptions()}</div> 
       {/* call function renderOptions */}
       {result && <p>{result}</p>}
       {/* visar result */}
+      <div>{nextRound()}</div>
     </div>
   );
 };
