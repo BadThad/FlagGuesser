@@ -3,14 +3,14 @@ import './App.css';
 import Footer from './components/footer.jsx';
 import Header from './components/header.jsx';
 import Main from './components/main.jsx';
-import Login from './components/login.jsx';
+import LoginSignup from './loginsignupform/loginsignup.jsx';
 
 function App() {
 
   return (
     <>
       <BrowserRouter>
-      <Login></Login>
+      <LoginSignup/>
       <Header></Header>
       <Main></Main>
       <Footer></Footer>
