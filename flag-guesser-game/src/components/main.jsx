@@ -9,7 +9,7 @@ const [correctCountry, setCorrectCountry] = useState(""); //Sparar rätt svar
 const [selectedOption, setSelectOption] = useState(null); //det svaret som användaren trycker
 const [result, setResult] = useState("");//Meddelande vid rätt eller fel svar
 const [counter, setCounter] = useState(1); // A counter to keep track of number of guesses (up to 10 when round ends).
-
+const [nextFlag, setNextFlag] = useState(false); // Variables used together with dependancy array of useEffect to control when useEffect runs.
 
 // API Rest countries API
 useEffect(() => { //lagt i för att useEffect ska bestämma när det fetches
@@ -36,7 +36,7 @@ useEffect(() => { //lagt i för att useEffect ska bestämma när det fetches
 
 
     fetchFlag(); // calls function fetchFlag() gör att den endast hämtas när den ska
-  }, []);
+  }, [nextFlag]); // Added a dependancy to control when useEffect runs.
 
 
 //   get random countries som kopplas till const randomCountries = getRandomCountries 
@@ -61,17 +61,22 @@ const optionClick = (option) =>{
     }
 };
 
+// Function which triggers the useEffect to run.
+const newFlag = () => {
+    setNextFlag(!nextFlag)
+}
+
 // Counter to keep track of how many rounds have been played and to fetch new flag.
 const roundCounter = () => {
     setCounter(counter + 1);
 }
 
-// "Next" button to proceed to next round.
+// "Next" button to proceed to next round. Includes onClick event which increases round count and fetches new flag.
 const nextRound = () => {
     return (
         <button 
         className="next-round-btn"
-        onClick={roundCounter}>
+        onClick={() => {roundCounter(); newFlag()}}> 
             Next Round
         </button>
     )
