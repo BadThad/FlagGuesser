@@ -29,8 +29,9 @@ useEffect(() => { //lagt i för att useEffect ska bestämma när det fetches
     setOptions(randomCountries.map((country) => country.name.common)); //randomCountries är Array, map skapar ny array. country.name.common för att nå landet och inte hela objectet
 
  } catch (error) { //error meddelande om de inte gick att hämta api
- } console.error("Error fetching data", error.message);
+    console.error("Error fetching data", error.message);
     setResult("Error fetching data");
+ }
 }
 
 
@@ -68,13 +69,11 @@ const roundCounter = () => {
 // "Next" button to proceed to next round.
 const nextRound = () => {
     return (
-        <div>
-            <button 
-            className="next-round-btn"
-            onClick={roundCounter}>
-                Next Round
-            </button>
-        </div>
+        <button 
+        className="next-round-btn"
+        onClick={roundCounter}>
+            Next Round
+        </button>
     )
 }
 
