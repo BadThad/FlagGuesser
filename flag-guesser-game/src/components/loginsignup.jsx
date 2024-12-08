@@ -1,10 +1,10 @@
+import React, { useEffect, useState } from "react";
 import "./loginsignup.css"
 import password_icone from "../assets/lock-icon.png";
 import email_icone from "../assets/mail-icon.png";
 import user_icone from "../assets/person-icon.png";
-
 const LoginSignup = () => {
-    const [action,setAction] = useState("Sign up");
+    const [action,setAction] = useState("");
 
     return(
         <div className="container">
@@ -14,15 +14,15 @@ const LoginSignup = () => {
             </div>
             <div className="inputs">
                 {action==="Login"?<div></div>:<div className="imput">
-                    <img src={user_icone} alt=""/>
+                    <img className="img" src={user_icone} alt=""/>
                     <input type="text" placeholder="username"/>
                 </div>}
                 <div className="imput">
-                    <img src={email_icone} alt=""/>
+                    <img  className="img" src={email_icone} alt=""/>
                     <input type="email" placeholder="email"/>
                 </div>
                 <div className="imput">
-                    <img src={password_icone} alt=""/>
+                    <img  className="img" src={password_icone} alt=""/>
                     <input type="password" placeholder="password"/>
                 </div>
             </div>
