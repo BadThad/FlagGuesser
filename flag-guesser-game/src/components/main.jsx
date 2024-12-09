@@ -67,7 +67,7 @@ console.log(scoreCount);
 
 // Function which triggers the useEffect to run.
 const newFlag = () => {
-    setNextFlag(!nextFlag)
+    setNextFlag(!nextFlag);
 }
 
 // Counter to keep track of how many rounds have been played and to fetch new flag.
@@ -75,12 +75,17 @@ const roundCounter = () => {
     setCounter(counter + 1);
 }
 
+const handleNext = () => {      // Function which resets the selection of the user.
+    setSelectOption(null);
+    setResult("");
+    };
+
 // "Next" button to proceed to next round. Includes onClick event which increases round count and fetches new flag.
 const nextRound = () => {
     return (
         <button 
         className="next-round-btn"
-        onClick={() => {roundCounter(); newFlag(); getRandomCountries(); optionClick();}}> 
+        onClick={() => {roundCounter(); newFlag(); handleNext()}}> 
             Next Round
         </button>
     )
