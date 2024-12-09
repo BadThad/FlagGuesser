@@ -10,6 +10,7 @@ const [selectedOption, setSelectOption] = useState(null); //det svaret som anvä
 const [result, setResult] = useState("");//Meddelande vid rätt eller fel svar
 const [counter, setCounter] = useState(1); // A counter to keep track of number of guesses (up to 10 when round ends).
 const [nextFlag, setNextFlag] = useState(false); // Variables used together with dependancy array of useEffect to control when useEffect runs.
+const [scoreCount, setScoreCount] = useState(0); // This is the scorekeeper which is added to the function which tracks if the choice was correct.
 
 // API Rest countries API
 useEffect(() => { //lagt i för att useEffect ska bestämma när det fetches
@@ -34,7 +35,6 @@ useEffect(() => { //lagt i för att useEffect ska bestämma när det fetches
  }
 }
 
-
     fetchFlag(); // calls function fetchFlag() gör att den endast hämtas när den ska
   }, [nextFlag]); // Added a dependancy to control when useEffect runs.
 
@@ -51,15 +51,19 @@ const getRandomCountries = (correctCountry, countries) => {
       }
       return randomCountries.sort(() => Math.random() - 0.5); //sort randomly -0.5 gör att det blandas även i array (att det inte är samma)
 };
+
 //Om option (som väljs är rätt eller fel olika svar)
 const optionClick = (option) =>{
     setSelectOption (option);
     if (option === correctCountry) {
         setResult('Correct');
+        setScoreCount(scoreCount + 1)   // This will keep track of the score.
     } else {
         setResult(`Wrong. The correct answer was ${correctCountry}`);
     }
 };
+
+console.log(scoreCount);
 
 // Function which triggers the useEffect to run.
 const newFlag = () => {
@@ -76,7 +80,7 @@ const nextRound = () => {
     return (
         <button 
         className="next-round-btn"
-        onClick={() => {roundCounter(); newFlag()}}> 
+        onClick={() => {roundCounter(); newFlag(); getRandomCountries(); optionClick();}}> 
             Next Round
         </button>
     )
