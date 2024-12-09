@@ -1,7 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import "./loginsignup.css"
 import password_icone from "../assets/lock-icon.png";
-import email_icone from "../assets/mail-icon.png";
 import user_icone from "../assets/person-icon.png";
 const LoginSignup = () => {
     const [action,setAction] = useState("");
@@ -33,7 +32,6 @@ const LoginSignup = () => {
             <h1 className="logged-in-text">you are logged in</h1>
             <br/>
             <p>
-                return to main page
             </p>
             </section>
         ) : (

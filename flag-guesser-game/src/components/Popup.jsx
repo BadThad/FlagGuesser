@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import react from "react";
-import loginsignup from "./loginsignup"
 import "./Popup.css";
 import LoginSignup from "./loginsignup";
 function Popup(props)  {

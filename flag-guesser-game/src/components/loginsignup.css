@@ -4,7 +4,8 @@
     margin: auto;
     margin-top: 200px;
     width: 600px;
-    background: white;
+    background-image: url("../assets/international-flags.jpg");
+    background-size: cover;
     padding-bottom: 30px;
 }
 
@@ -61,7 +62,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgb(4, 255, 0);
+    background-image: url("../assets/logedin bg.jpg");
+    color: rgb(0, 0, 0);
 }
 .logged-in{
     width: 80vh;
