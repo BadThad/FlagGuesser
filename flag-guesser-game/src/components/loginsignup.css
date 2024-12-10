@@ -62,10 +62,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("../assets/logedin bg.jpg");
     color: rgb(0, 0, 0);
 }
 .logged-in{
+    width: 80vh;
+    height: 30vh;
+}
+.homebtn{
+    background-color: black;
+    color: white;
     width: 80vh;
     height: 30vh;
 }
