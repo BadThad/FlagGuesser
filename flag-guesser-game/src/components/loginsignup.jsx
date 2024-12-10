@@ -44,17 +44,17 @@ const LoginSignup = () => {
                     <input className="inputs" type="text"
                      id="username"
                      ref={userRef}
-                     autoComplet="off"
+                     autoComplete="off"
                      onChange={(e) => setUser(e.target.value)}
                      value={user}
-                     requierd
+                     required
                      />
                      <label className="lablePwd" htmlFor="password"><img  className="img" src={password_icone}/>Password</label>
                     <input className="inputs" type="password"
                      id="password"
                      onChange={(e) => setPwd(e.target.value)}
                      value={pwd}
-                     requierd
+                     required
                      />      
                      <button className="submit">sign in</button>             
                 </form>
