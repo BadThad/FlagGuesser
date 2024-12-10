@@ -75,12 +75,13 @@ const roundCounter = () => {
     setCounter(counter + 1);
 }
 
-const handleNext = () => {      // Function which resets the selection of the user.
+// Function which resets the selection of the user and the displayed result of correct or wrong.
+const handleNext = () => {
     setSelectOption(null);
     setResult("");
     };
 
-// "Next" button to proceed to next round. Includes onClick event which increases round count and fetches new flag.
+// "Next" button to proceed to next round and resets selection. Includes onClick event which increases round count and fetches new flag.
 const nextRound = () => {
     return (
         <button 
