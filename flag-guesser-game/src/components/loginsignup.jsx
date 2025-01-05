@@ -2,6 +2,8 @@ import React, { useRef, useEffect, useState,} from "react";
 import "./loginsignup.css"
 import password_icone from "../assets/lock-icon.png";
 import user_icone from "../assets/person-icon.png";
+
+
 const LoginSignup = () => {
     const userRef = useRef();
     const errRef = useRef();
@@ -31,7 +33,7 @@ const LoginSignup = () => {
             <h1 className="logged-in-text">you are logged in</h1>
             <br/>
             <p>
-                <a  className="homebtn" href="app,jsx">back to home</a>
+                <a  className="homebtn" href="app.jsx">back to home</a>
             </p>
             </section>
         ) : (

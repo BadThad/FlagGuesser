@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 
+
 const FlagGuessGame = () => {
 // variables from useState
 const [flag, setFlag] = useState(""); //behåller flaggans url
@@ -12,6 +13,7 @@ const [counter, setCounter] = useState(1); // A counter to keep track of number 
 const [nextFlag, setNextFlag] = useState(false); // Variables used together with dependancy array of useEffect to control when useEffect runs.
 const [scoreCount, setScoreCount] = useState(0); // This is the scorekeeper which is added to the function which tracks if the choice was correct.
 const [disabled, setDisabled] = useState(false);
+const [gameOver, setGameOver] = useState(false);
 
 // API Rest countries API
 useEffect(() => { //lagt i för att useEffect ska bestämma när det fetches
@@ -74,15 +76,35 @@ const newFlag = () => {
 
 // Counter to keep track of how many rounds have been played and to fetch new flag.
 const roundCounter = () => {
+  if (counter < 10) {
     setCounter(counter + 1);
+} else {
+  setGameOver(true);  // if round 10 then function setGameover calls
+
 }
+}
+
+ const quitGame = () => {
+  alert('you guit the game'); //shows alert when quit game -> get to login again ?
+ }
+ 
+// for button restart 
+ const restartGame = () => {
+  setCounter(1); //back to round 1
+  setScoreCount(0); //score to 0
+  setGameOver(false); // game is not over anymore 
+  setDisabled(false); // alla knappar blir aktiva
+  setNextFlag(false); //new flag wont show until user chooses next round
+  setResult(""); //result empty string
+  setSelectOption(null); //nothing is selected
+};
 
 // Function which resets the selection of the user and the displayed result of correct or wrong.
 const handleNext = () => {
     setSelectOption(null);
     setResult("");
     };
-
+  
 // "Next" button to proceed to next round and resets selection. Includes onClick event which increases round count and fetches new flag.
 const nextRound = () => {
     return (
@@ -120,6 +142,8 @@ const renderOptions = () =>
   return (
     <div>
       <h1>Guess the Flag!</h1>
+      {!gameOver ? ( //condition ? valueIfTrue : valueIfFalse
+        <>
       <div>Round {counter} of 10.</div>
       {flag && <img src={flag} alt="Country Flag" style={{ margin:"10px 30px", width: "200px", height: "auto" }} />}
       <div>{renderOptions()}</div> 
@@ -127,6 +151,15 @@ const renderOptions = () =>
       {result && <p>{`${result}. Your current score is: ${scoreCount}`}</p>}
       {/* visar result and score count*/}
       <div>{nextRound()}</div>
+      </>
+      ) : (
+        <div>
+          <h2>Game Over</h2>
+          <p>Your final score is: {scoreCount}</p> 
+          <button onClick={restartGame}>Retry</button>
+          <button onClick={quitGame}>Quit</button>
+        </div>
+      )}
     </div>
   );
 };
