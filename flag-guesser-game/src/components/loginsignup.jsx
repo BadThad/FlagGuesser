@@ -11,20 +11,40 @@ const LoginSignup = () => {
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
+    const [item, setItem] = useState([]);
+    
+
+
+    useEffect(() =>{
+        localStorage.setItem('item', JSON.stringify(item));
+    }, [item]);
+  
+
+    useEffect(() => {
+        const savedItem = JSON.parse(localStorage.getItem('item'));
+    if (item) {
+        setItem(savedItem);
+    }
+    }, []);
+
     useEffect (() => {
         userRef.current.focus();
     }, [])
+
     useEffect (() => {
         setErrMsg('');
     }, [user, pwd])
 
     const handelSubmit = async (e) => {
         e.preventDefault();
-        console.log(user,pwd)
+        console.log(user,pwd);
+
+        setItem(prevItems => [...prevItems, { user, pwd }]);
+        
         setUser('');
         setPwd('');
         setSuccess(true);
-    }
+    };
 
     return(
         <>
