@@ -111,7 +111,7 @@ const renderOptions = () =>
               ? "red" // Röd för fel svar
               : "beige", //innebär om inget har tryckt så är det beige
         }}
-        disabled={selectedOption === option || disabled}//disable the button when result not null
+        disabled={selectedOption === option || disabled}//disable the button when option is set
       >
         {option}
       </button>
@@ -124,7 +124,7 @@ const renderOptions = () =>
       {flag && <img src={flag} alt="Country Flag" style={{ margin:"10px 30px", width: "200px", height: "auto" }} />}
       <div>{renderOptions()}</div> 
       {/* call function renderOptions */}
-      {result && <p>{result}</p>}
+      {result && <p>{`${result}. Your current score is: ${scoreCount}`}</p>}
       {/* visar result */}
       <div>{nextRound()}</div>
     </div>
