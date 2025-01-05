@@ -125,7 +125,7 @@ const renderOptions = () =>
       <div>{renderOptions()}</div> 
       {/* call function renderOptions */}
       {result && <p>{`${result}. Your current score is: ${scoreCount}`}</p>}
-      {/* visar result */}
+      {/* visar result and score count*/}
       <div>{nextRound()}</div>
     </div>
   );
