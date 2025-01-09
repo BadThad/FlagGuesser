@@ -1,12 +1,38 @@
-.signin{
+navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(63, 63, 63);
+    height: auto;
+    border-bottom: 2px solid white;
+    margin: 0px;
+}
+
+.game-title-container {
+    margin-left: 20px;
+}
+
+.game-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: whitesmoke;
+}
+
+.signin-btn-container {
+    margin: 10px 20px;
+}
+
+.signin-btn{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60px;
+    width: 100%;
     height: 40px;
+    padding: 5px 10px;
+    font-family: Arial, Helvetica, sans-serif;
     color: cornsilk;
     background-color: #0101ff;
-    border-radius: 10px;
+    border-radius: 8px;
     font-size: 19px;
     font-weight: 30;
     cursor: pointer;

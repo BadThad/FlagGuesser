@@ -9,15 +9,15 @@ function Header(){
     return ( 
         <>
         <navbar>
-        <div>
-            <p>Header</p>
-        </div>
-        <div>
-        <button onClick={() => setbuttonPopup(true)} className="signin">signin</button>
-        <Popup trigger={buttonPopup} setTrigger={setbuttonPopup}>
-          <LoginSignup/>
-        </Popup>
-        </div>
+            <div className="game-title-container">
+                <p className="game-title">Guess the Flag</p>
+            </div>
+            <div className="signin-btn-container">
+                <button onClick={() => setbuttonPopup(true)} className="signin-btn">Sign In</button>
+                <Popup trigger={buttonPopup} setTrigger={setbuttonPopup}>
+                    <LoginSignup/>
+                </Popup>
+            </div>
         </navbar>
         </>
     )
