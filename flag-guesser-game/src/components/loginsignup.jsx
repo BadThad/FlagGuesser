@@ -60,7 +60,7 @@ const LoginSignup = () => {
         <section className="container">
             <p ref={errRef} className={errMsg ? "errmsg" :
                  "offscreen"} aria-live="assertive">{errMsg}</p>
-                <h1 className="header-1">sign in</h1> 
+                <h1 className="header-1">Sign In</h1> 
                 <form className="header" onSubmit={handelSubmit}>
                     <label className="lableuser" htmlFor="username"><img  className="img" src={user_icone}/>Username</label>
                     <input className="inputs" type="text"
