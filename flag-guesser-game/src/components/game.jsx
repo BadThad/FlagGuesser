@@ -43,7 +43,7 @@ useEffect(() => { //lagt i för att useEffect ska bestämma när det fetches
   }, [nextFlag]); // Added a dependancy to control when useEffect runs.
 
 
-//   get random countries som kopplas till const randomCountries = getRandomCountries 
+// get random countries som kopplas till const randomCountries = getRandomCountries 
 // hämta tre länder som inte är rätt
 const getRandomCountries = (correctCountry, countries) => {
     const randomCountries = [correctCountry];//visar korrekt country så att det inte väljs den
@@ -131,7 +131,7 @@ const renderOptions = () =>
               ? "lightgreen" // Grön för rätt svar
               : result && selectedOption === option //kontrollerar om rätt svar och om det stämmer ihopm med valda knappen
               ? "red" // Röd för fel svar
-              : "blue", //innebär om inget har tryckt så är det beige
+              : "#1393EC", //innebär om inget har tryckt så är det beige
         }}
         disabled={selectedOption === option || disabled}//disable the button when option is set
       >
@@ -146,18 +146,21 @@ const renderOptions = () =>
         <>
       <div className="roundcounter-container">Round {counter} of 10.</div>
       <div className="flag-container">{flag && <img src={flag} alt="Country Flag"/>}</div>
-      <div className="guess-btn-container">{renderOptions()}</div> 
       {/* call function renderOptions */}
-      {/* {result && <p className="score-display">{`${result}. Your current score is: ${scoreCount}`}</p>} */}
-      {/* visar result and score count*/}
+      <div className="guess-btn-container">{renderOptions()}</div> 
       <div className="nextround-btn-container">{nextRound()}</div>
+      {/* visar result and score count*/}
+      {result && <p className="score-display">{`${result}. Your current score is: ${scoreCount}`}</p>}
+
       </>
       ) : (
         <div className="gameover-msg-container">
-          <h2>Game Over</h2>
-          <p>Your final score is: {scoreCount}</p> 
-          <button onClick={restartGame}>Retry</button>
-          <button onClick={quitGame}>Quit</button>
+          <h2 className="gameover-msg">Game Over</h2>
+          <p className="final-score">Your final score is: {scoreCount}</p> 
+          <div className="gameover-btn-container">
+            <button className="retry-btn" onClick={restartGame}>Retry</button>
+            <button className="quit-btn" onClick={quitGame}>Quit</button>
+          </div>
         </div>
       )}
     </div>

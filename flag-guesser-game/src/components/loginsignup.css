@@ -59,18 +59,11 @@
 }
 .logged-in-text {
     font-size: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgb(0, 0, 0);
+    position: absolute;
+    color: whitesmoke;
+    top: 40%;
+    left: 20%;
 }
 .logged-in{
-    width: 80vh;
-    height: 30vh;
-}
-.homebtn{
-    background-color: black;
-    color: white;
-    width: 80vh;
-    height: 30vh;
-}
+    width: 80vw;
+}   

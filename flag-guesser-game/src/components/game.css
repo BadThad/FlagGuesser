@@ -72,3 +72,53 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
 }
+
+.gameover-msg-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gameover-msg {
+    color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+}
+
+.final-score {
+    color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+}
+
+.gameover-btn-container {
+    display: flex;
+}
+
+.gameover-btn-container button:hover {
+    transform: scale(1.05);
+}
+
+.retry-btn {
+    margin-right: 10px;
+    color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: #1393EC;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.quit-btn {
+    margin-left: 10px;
+    color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: #1393EC;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    cursor: pointer;
+    }

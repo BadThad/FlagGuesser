@@ -50,11 +50,7 @@ const LoginSignup = () => {
         <>
         {success ? (
             <section className="logged-in">
-            <h1 className="logged-in-text">you are logged in</h1>
-            <br/>
-            <p>
-                <a  className="homebtn" href="app.jsx">back to home</a>
-            </p>
+                <h1 className="logged-in-text">Welcome! You are logged in.</h1>
             </section>
         ) : (
         <section className="container">
