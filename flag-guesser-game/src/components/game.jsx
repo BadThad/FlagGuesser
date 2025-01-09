@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import './game.css';
 
 
 
@@ -121,17 +122,16 @@ const nextRound = () => {
 //arrow function för att kunna trycka på options.
 const renderOptions = () =>
     options.map((option, index) => (
-      <button //allt inom button
+      <button className="guess-btn" //allt inom button
         key={index}
         onClick={() => optionClick(option)}
         style={{
-          fontSize: "16px",
           backgroundColor: 
             result && option === correctCountry
               ? "lightgreen" // Grön för rätt svar
               : result && selectedOption === option //kontrollerar om rätt svar och om det stämmer ihopm med valda knappen
               ? "red" // Röd för fel svar
-              : "beige", //innebär om inget har tryckt så är det beige
+              : "blue", //innebär om inget har tryckt så är det beige
         }}
         disabled={selectedOption === option || disabled}//disable the button when option is set
       >
@@ -140,20 +140,20 @@ const renderOptions = () =>
     ));
 
   return (
-    <div>
-      <h1>Guess the Flag!</h1>
+    <div className="game-container">
+      <h1>Guess which country this flag belongs to.</h1>
       {!gameOver ? ( //condition ? valueIfTrue : valueIfFalse
         <>
-      <div>Round {counter} of 10.</div>
-      {flag && <img src={flag} alt="Country Flag" style={{ margin:"10px 30px", width: "200px", height: "auto" }} />}
-      <div>{renderOptions()}</div> 
+      <div className="roundcounter-container">Round {counter} of 10.</div>
+      <div className="flag-container">{flag && <img src={flag} alt="Country Flag"/>}</div>
+      <div className="guess-btn-container">{renderOptions()}</div> 
       {/* call function renderOptions */}
-      {result && <p>{`${result}. Your current score is: ${scoreCount}`}</p>}
+      {result && <p className="score-display">{`${result}. Your current score is: ${scoreCount}`}</p>}
       {/* visar result and score count*/}
-      <div>{nextRound()}</div>
+      <div className="nextround-btn-container">{nextRound()}</div>
       </>
       ) : (
-        <div>
+        <div className="gameover-msg-container">
           <h2>Game Over</h2>
           <p>Your final score is: {scoreCount}</p> 
           <button onClick={restartGame}>Retry</button>

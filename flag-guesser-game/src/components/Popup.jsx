@@ -5,11 +5,11 @@ import LoginSignup from "./loginsignup";
 function Popup(props)  {
     return (props.trigger) ? (
     <div className="popup">
-    <div className="popup-inner">
-    <LoginSignup/>
-    <button className="close-btn" onClick={() => props.setTrigger(false)}>close</button>
-    {props.Children}
-    </div>
+        <div className="popup-inner">
+            <LoginSignup/>
+            <button className="close-btn" onClick={() => props.setTrigger(false)}>close</button>
+            {props.Children}
+        </div>
     </div>
     ) : "";
 }
