@@ -1,8 +1,10 @@
+import './footer.css'
+
 function Footer () {
     return (
-        <div>
-            <p>Footer</p>
-            <p>Created in React</p>
+        <div className='footer'>
+            <p className='creators-credit'>A game by Lea Theresa Haselsteiner, Lucas Wiklund, and Peter Fänge</p>
+            <p className='react-credit'>Created in React</p>
         </div>
     )
 }
