@@ -148,7 +148,7 @@ const renderOptions = () =>
       <div className="flag-container">{flag && <img src={flag} alt="Country Flag"/>}</div>
       <div className="guess-btn-container">{renderOptions()}</div> 
       {/* call function renderOptions */}
-      {result && <p className="score-display">{`${result}. Your current score is: ${scoreCount}`}</p>}
+      {/* {result && <p className="score-display">{`${result}. Your current score is: ${scoreCount}`}</p>} */}
       {/* visar result and score count*/}
       <div className="nextround-btn-container">{nextRound()}</div>
       </>

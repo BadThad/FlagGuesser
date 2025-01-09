@@ -5,7 +5,9 @@
     height: auto;
     border-top: 2px solid white;
     margin: 0px;
-
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .creators-credit {
